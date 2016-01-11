@@ -1,55 +1,29 @@
-
-var LIVERELOAD_PORT = 35729;
-var DEVROOT = 'build/dev/';
-var SRCROOT = 'client/src/';
-var LIBROOT = 'libs/';
+'use strict';
 
 module.exports = function (grunt) {
-    // Project configuration.
-    grunt.initConfig({
-        pkg: grunt.file.readJSON('package.json'),
-        clean: ["build"],
-        copy: {
-            dev: {
-                expand: true,
-                cwd: SRCROOT,
-                src: "**",
-                dest: DEVROOT
-            },
-            lib: {
-                expand: true,
-                flatten: true,
-                cwd: LIBROOT,
-                src: [
-                    'mithril/mithril.js',
-                    'pure-release-0.6.0/pure.css',
-                    'pure-release-0.6.0/base.css'
-                ],
-                dest: DEVROOT + LIBROOT
-            }
-        },
-        connect: {
-          dev: { options: { base: DEVROOT, livereload: true } }
-        },
-        watch: {
-            dev: {
-                files: [SRCROOT + '**', 'Gruntfile.js', LIBROOT + '**'],
-                tasks: ['devbuild'],
-                options: {
-                    spawn: false,
-                    livereload: LIVERELOAD_PORT
-                }
-            }
+
+    pkg: grunt.file.readJSON('package.json');
+
+    // Load grunt tasks automatically
+    require('load-grunt-tasks')(grunt);
+
+
+    var options = {
+        // Project settings
+        paths: {
+            // Configurable paths
+            devRoot: 'build/dev/',
+            srcRoot: 'client/src/',
+            libRoot: 'libs/'
         }
-    });
+    };
 
-    // Load the plugins
-    grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-contrib-connect');
-    grunt.loadNpmTasks('grunt-contrib-watch');
+    // Load grunt configurations automatically
+    var configs = require('load-grunt-configs')(grunt, options);
 
-    // Default task(s).
+    // Define the configuration for all the tasks
+    grunt.initConfig(configs);
+
     grunt.registerTask('devbuild', ['clean', 'copy:dev', 'copy:lib']);
     grunt.registerTask('default', ['devbuild', 'connect:dev', 'watch:dev']);
 };
