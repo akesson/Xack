@@ -10,8 +10,9 @@ app.controller = function() {
 
 app.view = function(ctrl) {
     return [
-        m("p", {}, "hello")
+        m("h1", {}, "hello again"),
+        m("button", {}, "A button")
     ];
 };
 
-m.module(document.getElementById("helloId"), app);
+m.module(document.getElementById("appRoot"), app);

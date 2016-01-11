@@ -14,6 +14,7 @@ The approach is to start targeting mainly modern operating systems and browsers 
 The stack that will be tested consists of:
 * [Mithril](https://github.com/lhorie/mithril.js) - A super-lightweight virtual DOM MVC client framework.
 * [TypeScript](http://www.typescriptlang.org/) - Finally a real language instead of (on top of) JavaScript.
+* [Pure.css](http://purecss.io/) - Light-weight CSS only framework.
 
 
 ## To get started

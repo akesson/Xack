@@ -20,8 +20,12 @@ module.exports = function (grunt) {
                 expand: true,
                 flatten: true,
                 cwd: LIBROOT,
-                src: ['mithril/mithril.js'],
-                dest: DEVROOT
+                src: [
+                    'mithril/mithril.js',
+                    'pure-release-0.6.0/pure.css',
+                    'pure-release-0.6.0/base.css'
+                ],
+                dest: DEVROOT + LIBROOT
             }
         },
         connect: {
@@ -29,7 +33,7 @@ module.exports = function (grunt) {
         },
         watch: {
             dev: {
-                files: [SRCROOT + '**'],
+                files: [SRCROOT + '**', 'Gruntfile.js', LIBROOT + '**'],
                 tasks: ['devbuild'],
                 options: {
                     spawn: false,
