@@ -2,6 +2,7 @@
 var LIVERELOAD_PORT = 35729;
 var DEVROOT = 'build/dev/';
 var SRCROOT = 'client/src/';
+var LIBROOT = 'libs/';
 
 module.exports = function (grunt) {
     // Project configuration.
@@ -13,6 +14,13 @@ module.exports = function (grunt) {
                 expand: true,
                 cwd: SRCROOT,
                 src: "**",
+                dest: DEVROOT
+            },
+            lib: {
+                expand: true,
+                flatten: true,
+                cwd: LIBROOT,
+                src: ['mithril/mithril.js'],
                 dest: DEVROOT
             }
         },
@@ -38,6 +46,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     // Default task(s).
-    grunt.registerTask('devbuild', ['clean', 'copy:dev']);
+    grunt.registerTask('devbuild', ['clean', 'copy:dev', 'copy:lib']);
     grunt.registerTask('default', ['devbuild', 'connect:dev', 'watch:dev']);
 };
