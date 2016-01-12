@@ -6,13 +6,13 @@ module.exports.tasks = {
         all: ["build"],
         css: ['<%= paths.web %>*.css', '<%= paths.generated %>/css'],
         html: ['<%= paths.web %>*.html'],
-        js: ['<%= paths.web %>**.js'],
+        js: ['<%= paths.web %>**.js', '<%= paths.generated %>/js'],
         libs: ['<%= paths.web %><%= paths.libs %>']
     },
     copy: {
         js: {
             expand: true,
-            cwd: '<%= paths.source %>',
+            cwd: '<%= paths.generatedJS %>',
             src: ['**.js'],
             dest: '<%= paths.web %>'
         },
@@ -31,11 +31,11 @@ module.exports.tasks = {
                 'pure-release-0.6.0/pure.css',
                 'pure-release-0.6.0/base.css'
             ],
-            dest: '<%= paths.web %><%= paths.libs %>'
+            dest: '<%= paths.webLibs %>'
         },
-        sass: {
+        css: {
             expand: true,
-            cwd: '<%= paths.generated %>/css',
+            cwd: '<%= paths.generatedCSS %>',
             src: 'client.css',
             dest: '<%= paths.web %>'
         }
@@ -46,9 +46,18 @@ module.exports.tasks = {
                 expand: true,
                 cwd: '<%= paths.source %>',
                 src: ['*.scss'],
-                dest: '<%= paths.generated %>/css',
+                dest: '<%= paths.generatedCSS %>',
                 ext: '.css'
             }]
+        }
+    },
+    typescript: {
+        dev: {
+            src: ['<%= paths.source %>/**/*.ts'],
+            dest: '<%= paths.generatedJS %>/client.js',
+            options: {
+                module: 'amd'
+            }
         }
     }
 };

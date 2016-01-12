@@ -6,7 +6,7 @@ module.exports.tasks = {
     },
     watch: {
         js: {
-            files: ['<%= paths.source %>**.js'],
+            files: ['<%= paths.source %>**.ts'],
             tasks: ['buildJS']
         },
         html: {

@@ -22,5 +22,7 @@ The stack that will be tested consists of:
 1. Clone project
 1. Change to project root directory
 1. Run `npm install`
+1. Run `sudo npm install -g typescript`
+1. Run `sudo npm install tslint -g`
 1. Run `sudo gem install sass`
 1. Run `grunt`

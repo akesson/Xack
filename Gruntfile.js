@@ -12,10 +12,13 @@ module.exports = function (grunt) {
         // Project settings
         paths: {
             // Configurable paths
-            web: 'build/webroot/',
-            generated: 'build/generated/',
-            source: 'client/src/',
-            libs: 'libs/'
+            web:          'build/webroot/',
+            webLibs:      'build/webroot/libs/',
+            generated:    'build/generated/',
+            generatedCSS: 'build/generated/css/',
+            generatedJS:  'build/generated/js/',
+            source:       'client/src/',
+            libs:         'libs/'
         }
     };
 
@@ -25,9 +28,9 @@ module.exports = function (grunt) {
     // Define the configuration for all the tasks
     grunt.initConfig(configs);
 
-    grunt.registerTask('buildCSS', ['clean:css', 'sass:dev', 'copy:sass']);
+    grunt.registerTask('buildCSS', ['clean:css', 'sass:dev', 'copy:css']);
     grunt.registerTask('buildHTML', ['clean:html', 'copy:html']);
-    grunt.registerTask('buildJS', ['clean:js', 'copy:js']);
+    grunt.registerTask('buildJS', ['clean:js', 'typescript:dev', 'copy:js']);
     grunt.registerTask('buildLIBS', ['clean:libs', 'copy:libs']);
 
     grunt.registerTask('build', ['clean:all', 'buildCSS', 'buildHTML', 'buildJS', 'buildLIBS']);
