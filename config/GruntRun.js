@@ -5,13 +5,21 @@ module.exports.tasks = {
         dev: { options: { base: '<%= paths.web %>', livereload: true } }
     },
     watch: {
-        buildConfig: {
-            files: ['Gruntfile.js', 'config/*'],
-            tasks: ['devbuild']
+        js: {
+            files: ['<%= paths.source %>**.js'],
+            tasks: ['buildJS']
         },
-        dev: {
-            files: ['<%= paths.source %>**'],
-            tasks: ['devbuild']
+        html: {
+            files: ['<%= paths.source %>**.html'],
+            tasks: ['buildHTML']
+        },
+        css: {
+            files: ['<%= paths.source %>**.scss'],
+            tasks: ['buildCSS']
+        },
+        libs: {
+            files: ['<%= paths.libs %>'],
+            tasks: ['buildLIBS']
         },
         options: {
             spawn: false,

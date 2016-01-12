@@ -20,5 +20,7 @@ The stack that will be tested consists of:
 ## To get started
 
 1. Clone project
-2. Run `npm install`
-3. Run `grunt`
+1. Change to project root directory
+1. Run `npm install`
+1. Run `sudo gem install sass`
+1. Run `grunt`

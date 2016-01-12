@@ -25,6 +25,11 @@ module.exports = function (grunt) {
     // Define the configuration for all the tasks
     grunt.initConfig(configs);
 
-    grunt.registerTask('devbuild', ['clean', 'copy:dev', 'copy:lib']);
-    grunt.registerTask('default', ['devbuild', 'connect:dev', 'watch']);
+    grunt.registerTask('buildCSS', ['clean:css', 'sass:dev', 'copy:sass']);
+    grunt.registerTask('buildHTML', ['clean:html', 'copy:html']);
+    grunt.registerTask('buildJS', ['clean:js', 'copy:js']);
+    grunt.registerTask('buildLIBS', ['clean:libs', 'copy:libs']);
+
+    grunt.registerTask('build', ['clean:all', 'buildCSS', 'buildHTML', 'buildJS', 'buildLIBS']);
+    grunt.registerTask('default', ['build', 'connect:dev', 'watch']);
 };
