@@ -12,9 +12,10 @@ module.exports = function (grunt) {
         // Project settings
         paths: {
             // Configurable paths
-            devRoot: 'build/dev/',
-            srcRoot: 'client/src/',
-            libRoot: 'libs/'
+            web: 'build/webroot/',
+            generated: 'build/generated/',
+            source: 'client/src/',
+            libs: 'libs/'
         }
     };
 
@@ -25,5 +26,5 @@ module.exports = function (grunt) {
     grunt.initConfig(configs);
 
     grunt.registerTask('devbuild', ['clean', 'copy:dev', 'copy:lib']);
-    grunt.registerTask('default', ['devbuild', 'connect:dev', 'watch:dev']);
+    grunt.registerTask('default', ['devbuild', 'connect:dev', 'watch']);
 };

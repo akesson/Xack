@@ -6,20 +6,20 @@ module.exports.tasks = {
     copy: {
         dev: {
             expand: true,
-            cwd: '<%= paths.srcRoot %>',
+            cwd: '<%= paths.source %>',
             src: "**",
-            dest: '<%= paths.devRoot %>'
+            dest: '<%= paths.web %>'
         },
         lib: {
             expand: true,
             flatten: true,
-            cwd: '<%= paths.libRoot %>',
+            cwd: '<%= paths.libs %>',
             src: [
                 'mithril/mithril.js',
                 'pure-release-0.6.0/pure.css',
                 'pure-release-0.6.0/base.css'
             ],
-            dest: '<%= paths.devRoot %><%= paths.libRoot %>'
+            dest: '<%= paths.web %><%= paths.libs %>'
         }
     }
 };

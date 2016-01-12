@@ -2,15 +2,15 @@
 
 module.exports.tasks = {
     connect: {
-        dev: { options: { base: '<%= paths.devRoot %>', livereload: true } }
+        dev: { options: { base: '<%= paths.web %>', livereload: true } }
     },
     watch: {
         buildConfig: {
             files: ['Gruntfile.js', 'config/*'],
-            tasks: ['default']
+            tasks: ['devbuild']
         },
         dev: {
-            files: ['<%= paths.srcRoot %>**'],
+            files: ['<%= paths.source %>**'],
             tasks: ['devbuild']
         },
         options: {
