@@ -1,10 +1,10 @@
-/**
- * Created by hakesson on 12/01/2016.
- */
-
+/// <reference path="components/HeaderComponent.ts" />
 ///<reference path="../../libs/mithril/mithril.d.ts" />
 
-import mithril = require('mithril');
+
+var header = new UIComponents.HeaderComponent("header");
+
+console.log("hello from " + header.name );
 
 var app = {
 
