@@ -13,6 +13,10 @@ module.exports.tasks = {
             files: ['<%= paths.source %>**.html'],
             tasks: ['buildHTML']
         },
+        json: {
+            files: ['<%= paths.source %>**.json'],
+            tasks: ['buildJSON']
+        },
         css: {
             files: ['<%= paths.source %>**.scss'],
             tasks: ['buildCSS']

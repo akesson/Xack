@@ -6,6 +6,7 @@ module.exports.tasks = {
         all: ["build"],
         css: ['<%= paths.web %>*.css', '<%= paths.generated %>/css'],
         html: ['<%= paths.web %>*.html'],
+        json: ['<%= paths.web %>*.json'],
         js: ['<%= paths.web %>**.js', '<%= paths.generated %>/js'],
         libs: ['<%= paths.web %><%= paths.libs %>']
     },
@@ -20,6 +21,12 @@ module.exports.tasks = {
             expand: true,
             cwd: '<%= paths.source %>',
             src: ['**.html'],
+            dest: '<%= paths.web %>'
+        },
+        json: {
+            expand: true,
+            cwd: '<%= paths.source %>',
+            src: ['**.json'],
             dest: '<%= paths.web %>'
         },
         libs: {
