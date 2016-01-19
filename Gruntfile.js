@@ -30,7 +30,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('buildCSS', ['clean:css', 'sass:dev', 'copy:css']);
     grunt.registerTask('buildHTML', ['clean:html', 'copy:html']);
-    grunt.registerTask('buildJS', ['clean:js', 'typescript:dev', 'copy:js']);
+    grunt.registerTask('buildJS', ['clean:js', 'browserify:dev', 'copy:js']);
     grunt.registerTask('buildLIBS', ['clean:libs', 'copy:libs']);
     grunt.registerTask('buildJSON', ['clean:json', 'copy:json']);
 

@@ -15,4 +15,3 @@ node_modules/
 
 .sass-cache/
 **.js.map
-client/**/*.js

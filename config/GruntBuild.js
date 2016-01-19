@@ -58,12 +58,15 @@ module.exports.tasks = {
             }]
         }
     },
-    typescript: {
+    browserify: {
         dev: {
-            src: ['<%= paths.source %>/**/*.ts'],
-            dest: '<%= paths.generatedJS %>/client.js',
             options: {
-                module: 'amd'
+                transform: [['babelify', {loose: 'all'}]]
+            },
+            files: {
+              '<%= paths.generatedJS %>/client.js': [
+                  '<%= paths.source %>/**/*.es6'
+              ]
             }
         }
     }
